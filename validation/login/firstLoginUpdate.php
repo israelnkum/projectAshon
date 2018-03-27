@@ -3,22 +3,12 @@ session_start();
 // database Connection
 require_once ('../db_Connection.php');
 // if button is actually clicked
-if (isset($_POST['btn_FirstUpdate'])) {
-
+if ($_POST) {
+    $validator = array('success' => false, 'messages' => array());
 
     $newPassword = !empty($_POST['new_password']) ? trim($_POST['new_password']) : null;
     $confirmPassword = !empty($_POST['confirm_password']) ? trim($_POST['confirm_password']) : null;
 
-    if ($newPassword != $confirmPassword){
-
-        header("Location: ../../pages/firstLogin/update_password.php?match=" .urlencode("password is Mismatch"));
-        exit();
-    }else{
-        if ($confirmPassword < 8){
-
-            header("Location: ../../pages/firstLogin/update_password.php?password=" .urlencode("password is less than 8"));
-            exit();
-        }else{
             $hashPassword = password_hash($confirmPassword, PASSWORD_BCRYPT, array("cost" => 12));
 
             $sql = "UPDATE users SET  user_password= :new_password, updated=:one WHERE user_id = :userID";
@@ -30,7 +20,7 @@ if (isset($_POST['btn_FirstUpdate'])) {
             $stmt->bindValue(':userID',$_SESSION['u_id']);
 
             $result=$stmt->execute();
-            if($result){
+            if($result === true){
                 $currentUser ="SELECT  * FROM `users` WHERE `user_id` = :currentUserId";
                 $stmt = $connection->prepare($currentUser);
                 //Bind the provided username to our prepared statement.
@@ -43,10 +33,10 @@ if (isset($_POST['btn_FirstUpdate'])) {
                     $_SESSION['u_name'] = $row['username'];
                     $_SESSION['logged_in'] = time();
 
-                    header("Location: ../../pages/dashboard.php?Welcome=" .urlencode("loginSuccess"));
+                    $validator['success'] = true;
+                    $validator['messages'] = "User Added Successful";
 
-
-                }else{
+            }else{
                     $_SESSION['u_id'] = $row['user_id'];
                     $_SESSION['u_name'] = $row['username'];
                     $_SESSION['logged_in'] = time();
@@ -61,12 +51,9 @@ if (isset($_POST['btn_FirstUpdate'])) {
                 exit();
 
             }
-        }
-    }
-
-
 
 }
+echo json_encode($validator);
 
 $connection=null;
 //echo json_encode($validator);

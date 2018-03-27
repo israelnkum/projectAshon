@@ -118,6 +118,7 @@ $(document).ready(function() {
                         success:function (response) {
                             //     $(".invalid-feedback").removeClass('has-error');
                             if(response.success === true){
+                                window.location.assign("http://localhost/projectAhonFinal/pages/dashboard.php");
 
                                 $(".form-group").removeClass('has-error').removeClass('has-success');
                                 //reset Form after submission

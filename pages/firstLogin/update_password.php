@@ -59,7 +59,7 @@ session_start();
                                 <div class="col-md-8 col-sm-push-2">
                                     <div class="form-group">
                                         <label for="new_password">New Password</label>
-                                        <input type="password" class="form-control" id="new_password" name="new_password" required placeholder="New Password" >
+                                        <input type="password" class="form-control" id="new_password" name="new_password"  placeholder="New Password" >
 
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@ session_start();
                                 <div class="col-md-8 col-sm-push-2">
                                     <div class="form-group">
                                         <label for="confirm_password">Password</label>
-                                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required placeholder="Confirm Password">
+                                        <input type="password" class="form-control" id="confirm_password" name="confirm_password"  placeholder="Confirm Password">
                                     </div>
                                 </div>
                             </div>

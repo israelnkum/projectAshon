@@ -1,4 +1,85 @@
 
+$(document).ready(function() {
+
+    $("#btn_FirstUpdate").on('click',function () {
+
+
+        // remove error
+        $(".form-group").removeClass('has-error').removeClass('has-success');
+        $('.text-danger').remove();
+
+        $("#updatePassowrdForm").unbind('submit').bind('submit',function () {
+            $('.text-danger').remove();
+            var form = $(this);
+            //validation
+            var new_password = $("#new_password").val();
+            var confirm_password = $("#confirm_password").val();
+
+
+            if (new_password === ""){
+                $("#new_password").closest('.form-group').addClass('has-error');
+                $("#new_password").after('<p class="text-danger">New Password is required</p>');
+            }else{
+                $("#new_password").closest('.form-group').removeClass('has-error');
+                $("#new_password").closest('.form-group').addClass('has-success');
+
+            }
+            if (confirm_password === ""){
+                $("#confirm_password").closest('.form-group').addClass('has-error');
+                $("#confirm_password").after('<p class="text-danger">Confirm Password is required</p>');
+            }else{
+                $("#confirm_password").closest('.form-group').removeClass('has-error');
+                $("#confirm_password").closest('.form-group').addClass('has-success');
+
+
+            }
+
+
+            if (new_password.length < 8){
+                $("#new_password").closest('.form-group').addClass('has-error');
+                $("#new_password").after('<p class="text-danger">Password at least 8</p>');
+            }else{
+                $("#new_password").closest('.form-group').removeClass('has-error');
+                $("#new_password").closest('.form-group').addClass('has-success');
+
+
+                if (new_password && confirm_password){
+                    //submit the form to server
+
+                    $.ajax({
+                        url :form.attr('action'),
+                        type : form.attr('method'),
+                        data : form.serialize(),
+                        dataType : 'json',
+                        success:function (response) {
+                            //     $(".invalid-feedback").removeClass('has-error');
+                            if(response.success === true){
+                                window.location.assign("http://localhost/projectAhonFinal/pages/dashboard.php");
+
+                                $(".form-group").removeClass('has-error').removeClass('has-success');
+
+
+                            }else{
+                                window.location.assign("http://localhost/projectAhonFinal/pages/users/dashboard.users.php");
+                                $.notify({
+                                    message: "Password Changed Successfully"
+                                },{
+                                    type: 'danger',
+                                    timer: 10
+                                });
+                            }//else
+                        }//success
+                    });//ajax submit
+                }// if
+            }
+
+
+            return false;
+        });// new user form
+    });// add new user button
+});//document .ready function
+
+
 // Checking the password Strength
 var pass = document.getElementById("new_password");
 pass.addEventListener('keyup',function () {
