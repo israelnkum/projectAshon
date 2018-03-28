@@ -30,7 +30,7 @@ include "../includes/dashboard/admin/header.admin.php";
                                                 Upload
                                              </button>
 
-                                           <button type="button" id="addNewStudent" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#newStdModal">
+                                           <button type="button" id="btn_addNewStudent" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#newStdModal">
                                                   <i class="glyphicon glyphicon-plus"></i>
                                                 New Student
                                              </button>

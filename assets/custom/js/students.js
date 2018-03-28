@@ -1,16 +1,16 @@
 
 
-var usersTable;
+var std_Table;
 $(document).ready(function() {
 
-    usersTable= $("#usersTable").DataTable({
+    usersTable= $("#std_Table").DataTable({
         "ajax": "../validation/dashboard/students/retrieveAllStudents.php",
         "order":[]
     });
 
-    $("#addNewUserButton").on('click',function () {
+    $("#btn_addNewStudent").on('click',function () {
         //reset the form
-        $("#addNewUserForm")[0].reset();
+        $("#addNewStudentForm")[0].reset();
 
         // remove error
         $(".form-group").removeClass('has-error').removeClass('has-success');
@@ -18,133 +18,135 @@ $(document).ready(function() {
 
         $(".messages").html("");
         //submit form
-        $("#addNewUserForm").unbind('submit').bind('submit',function () {
+        $("#addNewStudentForm").unbind('submit').bind('submit',function () {
             $('.text-danger').remove();
             var form = $(this);
             //validation
-            var newUsername = $("#newUsername").val();
-            var userEmail = $("#userEmail").val();
-            var firstName = $("#firstName").val();
-            var lastName = $("#lastName").val();
-            var mobileNumber = $("#mobileNumber").val();
-            var securityQuestion = $("#securityQuestion").val();
-            var userType = $("#userType").val();
-            var answer = $("#answer").val();
+            var stdFirstName = $("#stdFirstName").val();
+            var stdLastName = $("#stdLastName").val();
+            var otherName = $("#otherName").val();
+            var indexNumber = $("#indexNumber").val();
+            var stdClass = $("#stdClass").val();
+            var amount = $("#amount").val();
+            var stdLacost = $("#stdLacost").val();
+            var stdPhone = $("#stdPhone").val();
 
-            if (newUsername === ""){
-                $("#newUsername").closest('.form-group').addClass('has-error');
-                $("#newUsername").after('<p class="text-danger">Username is required</p>');
+            if (stdFirstName === ""){
+                $("#stdFirstName").closest('.form-group').addClass('has-error');
+                $("#stdFirstName").after('<p class="text-danger">First Name is required</p>');
             }else{
-                $("#newUsername").closest('.form-group').removeClass('has-error');
-                $("#newUsername").closest('.form-group').addClass('has-success');
+                $("#stdFirstName").closest('.form-group').removeClass('has-error');
+                $("#stdFirstName").closest('.form-group').addClass('has-success');
 
             }
-            if (userEmail === ""){
-                $("#userEmail").closest('.form-group').addClass('has-error');
-                $("#userEmail").after('<p class="text-danger">Email is required</p>');
+            if (stdLastName === ""){
+                $("#stdLastName").closest('.form-group').addClass('has-error');
+                $("#stdLastName").after('<p class="text-danger">Last Name is required</p>');
             }else{
-                $("#userEmail").closest('.form-group').removeClass('has-error');
-                $("#userEmail").closest('.form-group').addClass('has-success');
-
-
-            }
-            if (firstName === ""){
-                $("#firstName").closest('.form-group').addClass('has-error');
-                $("#firstName").after('<p class="text-danger">First Name is required</p>');
-            }else{
-                $("#firstName").closest('.form-group').removeClass('has-error');
-                $("#firstName").closest('.form-group').addClass('has-success');
-
-            }
-            if (lastName === ""){
-                $("#lastName").closest('.form-group').addClass('has-error');
-                $("#lastName").after('<p class="text-danger">Last Name is required</p>');
-            }else{
-                $("#lastName").closest('.form-group').removeClass('has-error');
-                $("#lastName").closest('.form-group').addClass('has-success');
-
-            }
-            if (mobileNumber === ""){
-                $("#mobileNumber").closest('.form-group').addClass('has-error');
-                $("#mobileNumber").after('<p class="text-danger">Phone number is required</p>');
-            }else{
-                $("#mobileNumber").closest('.form-group').removeClass('has-error');
-                $("#mobileNumber").closest('.form-group').addClass('has-success');
-            }
-
-            if (securityQuestion === ""){
-                $("#securityQuestion").closest('.form-group').addClass('has-error');
-                $("#securityQuestion").after('<p class="text-danger">Security Question is required</p>');
-            }else{
-                $("#securityQuestion").closest('.form-group').removeClass('has-error');
-                $("#securityQuestion").closest('.form-group').addClass('has-success');
-
-            }
-            if (userType === ""){
-                $("#userType").closest('.form-group').addClass('has-error');
-                $("#userType").after('<p class="text-danger">User Type is required</p>');
-            }else{
-                $("#userType").closest('.form-group').removeClass('has-error');
-                $("#userType").closest('.form-group').addClass('has-success');
+                $("#stdLastName").closest('.form-group').removeClass('has-error');
+                $("#stdLastName").closest('.form-group').addClass('has-success');
 
 
             }
-            if (answer === ""){
-                $("#answer").closest('.form-group').addClass('has-error');
-                $("#answer").after('<p class="text-danger">Answer is required</p>');
+            if (otherName === ""){
+                $("#otherName").closest('.form-group').addClass('has-error');
+                $("#otherName").after('<p class="text-danger">Other Name is required</p>');
             }else{
-                $("#answer").closest('.form-group').removeClass('has-error');
-                $("#answer").closest('.form-group').addClass('has-success');
+                $("#otherName").closest('.form-group').removeClass('has-error');
+                $("#otherName").closest('.form-group').addClass('has-success');
+
+            }
+            if (indexNumber === ""){
+                $("#indexNumber").closest('.form-group').addClass('has-error');
+                $("#indexNumber").after('<p class="text-danger">Index Number is required</p>');
+            }else{
+                $("#indexNumber").closest('.form-group').removeClass('has-error');
+                $("#indexNumber").closest('.form-group').addClass('has-success');
+
+            }
+            if (stdClass === ""){
+                $("#stdClass").closest('.form-group').addClass('has-error');
+                $("#stdClass").after('<p class="text-danger">Class is is required</p>');
+            }else{
+                $("#stdClass").closest('.form-group').removeClass('has-error');
+                $("#stdClass").closest('.form-group').addClass('has-success');
+            }
+
+            if (amount === ""){
+                $("#amount").closest('.form-group').addClass('has-error');
+                $("#amount").after('<p class="text-danger">Amount is required</p>');
+            }else{
+                $("#amount").closest('.form-group').removeClass('has-error');
+                $("#amount").closest('.form-group').addClass('has-success');
+
+            }
+            if (stdLacost === ""){
+                $("#stdLacost").closest('.form-group').addClass('has-error');
+                $("#stdLacost").after('<p class="text-danger">Lacost field is required</p>');
+            }else{
+                $("#stdLacost").closest('.form-group').removeClass('has-error');
+                $("#stdLacost").closest('.form-group').addClass('has-success');
+
+
+            }
+            if (stdPhone === ""){
+                $("#stdPhone").closest('.form-group').addClass('has-error');
+                $("#stdPhone").after('<p class="text-danger">Phone number is required</p>');
+            }else{
+                $("#stdPhone").closest('.form-group').removeClass('has-error');
+                $("#stdPhone").closest('.form-group').addClass('has-success');
 
 
             }
 
-            if (mobileNumber.length < 10 || mobileNumber.length > 10){
-                $("#mobileNumber").closest('.form-group').addClass('has-error');
-                $("#mobileNumber").after('<p class="text-danger">Phone number should be 10 digit</p>');
+            if (stdPhone.length < 10 || stdPhone.length > 10){
+                $("#stdPhone").closest('.form-group').addClass('has-error');
+                $("#stdPhone").after('<p class="text-danger">Phone number shoudl be 10 digit</p>');
             }else{
-                $("#mobileNumber").closest('.form-group').removeClass('has-error');
-                $("#mobileNumber").closest('.form-group').addClass('has-success');
+                $("#stdPhone").closest('.form-group').removeClass('has-error');
+                $("#stdPhone").closest('.form-group').addClass('has-success');
+            }
 
-
-                if (newUsername && userEmail && firstName && lastName && mobileNumber && securityQuestion && userType && answer){
-                    //submit the form to server
-
+                if (stdFirstName && stdLastName && otherName && indexNumber && stdClass && amount && stdLacost && stdPhone){
+//submit the form to server
                     $.ajax({
                         url :form.attr('action'),
                         type : form.attr('method'),
                         data : form.serialize(),
                         dataType : 'json',
-
                         success:function (response) {
-                            //     $(".invalid-feedback").removeClass('has-error');
+//     $(".invalid-feedback").removeClass('has-error');
                             if(response.success === true){
 
                                 $(".form-group").removeClass('has-error').removeClass('has-success');
-                                //reset Form after submission
-                                $("#addNewUserForm")[0].reset();
+//reset Form after submission
+                                $("#addNewStudentForm")[0].reset();
+
 
                                 $.notify({
-                                    message: "New User Added Successfully"
+                                    message: "New Student Added Successfully"
                                 },{
                                     type: 'success',
                                     timer: 10
                                 });
 
-                                //  usersTable.ajax.reload(false);
+                                window.location.assign("http://localhost/projectAhonFinal/pages/students.php");
+                                $("#newStdModal").hide();
+
+//  usersTable.ajax.reload(false);
 
                             }else{
                                 $.notify({
-                                    message: "Username or Email Already Exist"
+                                    message: "There Was an Error While Adding Student"
                                 },{
                                     type: 'danger',
                                     timer: 10
                                 });
                             }//else
-                        }//success,
+                        }//success
                     });//ajax submit
                 }// if
-            }
+
 
 
             return false;
