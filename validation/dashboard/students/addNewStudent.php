@@ -10,7 +10,7 @@ if ($_POST) {
 
     $stdFirstName = !empty($_POST['stdFirstName']) ? trim($_POST['stdFirstName']) : null;
     $stdLastName = !empty($_POST['stdLastName']) ? trim($_POST['stdLastName']) : null;
-    $otherName = !empty($_POST['otherName']) ? trim($_POST['otherName']) : null;
+    $stdOtherName = !empty($_POST['otherName']) ? trim($_POST['otherName']) : null;
     $indexNumber  = !empty($_POST['indexNumber']) ? trim($_POST['indexNumber']) : null;
     $stdClass = !empty($_POST['stdClass']) ? trim($_POST['stdClass']) : null;
     $amount = !empty($_POST['amount']) ? trim($_POST['amount']) : null;
@@ -41,19 +41,27 @@ exit();
              VALUES (:firstName, :lastName, :otherName, :indexNumber, :class,
            :lacost,:amountPaid, :payment_status)";
 
+         if ($amount >= 25 & $amount < 45){
+             $p_status = "Part Payment";
+         }elseif ($amount >= 0 && $amount < 25){
+             $p_status = "Oweing";
+         }elseif ($amount == 45){
+             $p_status = "Full Payment";
+         }
+
          $stmt = $connection -> prepare($sql);
-         $stmt->bindValue(':firstName',$userName);
-         $stmt->bindValue(':lastName',$userMail);
-         $stmt->bindValue(':otherName',$hashPassword);
-         $stmt->bindValue(':index_number',$firstName);
-         $stmt->bindValue(':class',$lastName);
-         $stmt->bindValue(':lacost',$userPhone);
-         $stmt->bindValue(':amount_paid',$securityQuestion);
-         $stmt->bindValue(':payment_status',$answer);
+         $stmt->bindValue(':firstName',$stdFirstName);
+         $stmt->bindValue(':lastName',$stdLastName);
+         $stmt->bindValue(':otherName',$stdOtherName);
+         $stmt->bindValue(':indexNumber',$indexNumber);
+         $stmt->bindValue(':class',$stdClass);
+         $stmt->bindValue(':lacost',$stdLacost);
+         $stmt->bindValue(':amountPaid',$amount);
+         $stmt->bindValue(':payment_status',$p_status);
 
 
          $result = $stmt->execute();
-         if($result ===true){
+         if($result === true){
 
              $validator['success'] = true;
              $validator['messages'] = "User Added Successful";

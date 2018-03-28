@@ -32,7 +32,6 @@ if ($_POST) {
                     $_SESSION['u_id'] = $row['user_id'];
                     $_SESSION['u_name'] = $row['username'];
                     $_SESSION['logged_in'] = time();
-
                     $validator['success'] = true;
                     $validator['messages'] = "User Added Successful";
 
@@ -40,8 +39,8 @@ if ($_POST) {
                     $_SESSION['u_id'] = $row['user_id'];
                     $_SESSION['u_name'] = $row['username'];
                     $_SESSION['logged_in'] = time();
-                    header("Location: ../../pages/users/dashboard.users.php?Welcome=".urlencode("login_success"));
-                    exit();
+                    $validator['success'] = false;
+                    $validator['messages'] = "User Added Successful";
                 }
 
 

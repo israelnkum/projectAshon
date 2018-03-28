@@ -4,8 +4,9 @@ session_start();
 require_once ('../../db_Connection.php');
 // if button is actually clicked
 if ($_POST) {
-    $validator = array('success' => false, 'messages' => array());
-$validator = array('success' => false, 'messages' => array());
+    $validator = array('success' => false, 'usr_exit' => false,  'messages' => array());
+
+
 //Retrieve the field values from our registration form.
 
     $userName = !empty($_POST['newUsername']) ? trim($_POST['newUsername']) : null;
@@ -31,8 +32,8 @@ $validator = array('success' => false, 'messages' => array());
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if($row['num'] > 0){
-header("Location: ../../../pages/users.php?user=".urlencode("Username Already Exist"));
-exit();
+        $validator['success'] = false;
+
     }else {
         //checking if the supplied Email already exists.
         // SQL statement and prepare it.
@@ -45,8 +46,7 @@ exit();
         //Fetch the row.
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($row['num'] > 0) {
-            header("Location: ../../../pages/users.php?emailAddress=" . urlencode("Email Address Already Exist"));
-            exit();
+            $validator['success'] = false;
         } else {
             $hashPassword = password_hash($userName, PASSWORD_BCRYPT, array("cost" => 12));
 

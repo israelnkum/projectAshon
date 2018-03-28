@@ -206,7 +206,7 @@
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   <h4 class="modal-title"> <i class="fa fa-graduation-cap "></i>   New Student</h4>
                 </div>
-                <form method="post" action="" class="form-horizontal" id="addNewStudentForm">
+                <form method="post" action="../validation/dashboard/students/addNewStudent.php" class="form-horizontal" id="addNewStudentForm">
                 <div class="modal-body">
 
                            <div class="form-group">
@@ -249,20 +249,18 @@
 
                              <div class="col-sm-4">
                                    <label for="amount" >Amount (GH₵)</label>
-                               <input type="text" class="form-control border-input" id="indexNumber" name="indexNumber" placeholder="Index Number">
+                               <input type="text" class="form-control border-input" id="amount" name="amount" placeholder="Amount">
                              </div>
                          </div>
 
 
                          <div class="form-group">
-
                               <div class="col-sm-4">
                                    <label for="stdLacost" >Lacost</label>
                                    <select name="stdLacost" id="stdLacost" class="form-control border-input">
                                      <option value="">Select</option>
                                      <option value="1">Recieved</option>
                                      <option value="0">Not Recieved</option>
-
                                    </select>
                               </div>
 
@@ -276,7 +274,7 @@
                     </div>
                      <div class="modal-footer">
                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                       <button type="submit" class="btn btn-primary">Save changes</button>
+                       <button type="submit" name="btn_addStudent" class="btn btn-primary">Add Student</button>
                      </div>
                 </form>
               </div><!-- /.modal-content -->

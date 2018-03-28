@@ -101,7 +101,7 @@ $(document).ready(function() {
 
             if (mobileNumber.length < 10 || mobileNumber.length > 10){
                 $("#mobileNumber").closest('.form-group').addClass('has-error');
-                $("#mobileNumber").after('<p class="text-danger">Phone number shoudl be 10 digit</p>');
+                $("#mobileNumber").after('<p class="text-danger">Phone number should be 10 digit</p>');
             }else{
                 $("#mobileNumber").closest('.form-group').removeClass('has-error');
                 $("#mobileNumber").closest('.form-group').addClass('has-success');
@@ -115,10 +115,10 @@ $(document).ready(function() {
                         type : form.attr('method'),
                         data : form.serialize(),
                         dataType : 'json',
+
                         success:function (response) {
                             //     $(".invalid-feedback").removeClass('has-error');
                             if(response.success === true){
-                                window.location.assign("http://localhost/projectAhonFinal/pages/dashboard.php");
 
                                 $(".form-group").removeClass('has-error').removeClass('has-success');
                                 //reset Form after submission
@@ -135,13 +135,13 @@ $(document).ready(function() {
 
                             }else{
                                 $.notify({
-                                    message: "There Was an Error While Adding User"
+                                    message: "Username or Email Already Exist"
                                 },{
                                     type: 'danger',
                                     timer: 10
                                 });
                             }//else
-                        }//success
+                        }//success,
                     });//ajax submit
                 }// if
             }
