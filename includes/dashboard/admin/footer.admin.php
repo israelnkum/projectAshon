@@ -304,6 +304,101 @@
 
 <!-- Upload students Modal -->
 
+        <!-- edit students Modal -->
+        <div class="modal fade" id="editStdModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title text-danger" id="myModalLabel"><i class="fa fa-edit"></i> Edit User Information</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-10">
+                                <div class="card" style="padding: 5px;">
+                                    <form method="post" action="../validation/dashboard/students/updateStudentInfo.php" id="updateUserForm" name="updateUserForm">
+
+                                        <div class="row">
+                                            <div class="form-group">
+
+                                                <div class="col-sm-4">
+                                                    <label for="edit_stdFirstName" >First Name</label>
+                                                    <input type="text" class="form-control border-input" id="edit_stdFirstName" name="edit_stdFirstName" placeholder="First Name">
+                                                </div>
+
+                                                <div class="col-sm-4">
+                                                    <label for="edit_stdLastName" >Last Name</label>
+                                                    <input type="text" class="form-control border-input" id="edit_stdLastName" name="edit_stdLastName" placeholder="Last Name">
+                                                </div>
+
+
+                                                <div class="col-sm-4">
+                                                    <label for="edit_otherName" >Other Name</label>
+                                                    <input type="text" class="form-control border-input" id="edit_otherName" name="edit_otherName" placeholder="Other Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-sm-4">
+                                                    <label for="edit_indexNumber" >Index Number</label>
+                                                    <input type="text" class="form-control border-input" id="edit_indexNumber" name="edit_indexNumber" placeholder="Index Number">
+                                                </div>
+
+                                                <div class="col-sm-4">
+                                                    <label for="edit_stdClass" >Class</label>
+                                                    <select name="edit_stdClass" id="edit_stdClass" class="form-control border-input">
+                                                        <option value="">Select</option>
+                                                        <option value="HND Level 100">HND Level 100</option>
+                                                        <option value="HND Level 200">HND Level 200</option>
+                                                        <option value="HND Level 300">HND Level 300</option>
+                                                        <option value="Diploma Level 100">Diploma Level 100</option>
+                                                        <option value="Diploma Level 200">Diploma Level 200</option>
+                                                        <option value="BTECH Level 100">BTECH Level 100</option>
+                                                        <option value="BTECH Level 200">BTECH Level 200</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-sm-4">
+                                                    <label for="edit_amount" >Amount (GH₵)</label>
+                                                    <input type="text" class="form-control border-input" id="edit_amount" name="edit_amount" placeholder="Amount">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-sm-4">
+                                                    <label for="edit_stdLacost" >Lacost</label>
+                                                    <select name="edit_stdLacost" id="edit_stdLacost" class="form-control border-input">
+                                                        <option value="">Select</option>
+                                                        <option value="1">Recieved</option>
+                                                        <option value="0">Not Recieved</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-sm-4">
+                                                    <label for="edit_stdPhone" >Phone Number</label>
+                                                    <input type="text" class="form-control border-input" id="edit_stdPhone" name="edit_stdPhone" placeholder="Phone Number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer editStudentsId">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="submit" name="btn_addStudent" class="btn btn-primary">Add Student</button>
+                                        </div>
+
+                                    </form><!-- edit user form -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div><!-- edit students Modal -->
+
 </body>
 
 

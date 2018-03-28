@@ -39,15 +39,16 @@ include "../includes/dashboard/admin/header.admin.php";
                                                 <table class="table" id="std_Table">
                                                      <thead>
                                                           <tr>
-                                                            <th>#</th>
-                                                            <th>Name</th>
-                                                            <th>Index No.</th>
-                                                            <th>Class</th>
-                                                            <th>Amount Paid</th>
-                                                            <th>Lacost</th>
-                                                            <th>Status</th>
-                                                            <th>Date</th>
-                                                       </tr>
+                                                              <th>#</th>
+                                                              <th>Name</th>
+                                                              <th>Index No.</th>
+                                                              <th>Class</th>
+                                                              <th>Amount Paid</th>
+                                                              <th>Lacost</th>
+                                                              <th>Status</th>
+                                                              <th>Date</th>
+                                                              <th>Action</th>
+                                                          </tr>
                                                      </thead>
                                                 </table>
                                            </div>

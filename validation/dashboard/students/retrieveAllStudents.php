@@ -38,11 +38,11 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
   <div class="dropdown-menu bg-transparent" aria-labelledby="dLabel">
 
     <button type="button" class=" collapsed dropdown-item btn btn-primary btn-sm"
-      data-toggle="modal" data-target="#editUserModal" aria-expanded="false" aria-controls="editUser" onclick="update_userInformation('.$row['user_id'].')">
-    <i class="fa fa-edit"></i> Edit</button>
+      data-toggle="modal" data-target="#editStdModal" aria-expanded="false" aria-controls="editUser" onclick="update_studentsInformation('.$row['std_id'].')">
+    <i class="fa fa-edit"></i></button>
 
 <a role="button" class="dropdown-item btn btn-danger btn-sm" data-toggle="modal"
-    data-target="#deleteUserModal" onclick="deleteUser('.$row['user_id'].')"><i class="fa fa-trash"></i> Delete</a>
+    data-target="#deleteUserModal" onclick="deleteUser('.$row['std_id'].')"><i class="fa fa-trash"></i></a>
 
   </div>
 </div>

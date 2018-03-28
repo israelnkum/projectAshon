@@ -157,41 +157,46 @@ $(document).ready(function() {
 
 
 /*
-*Update User information
+*Update students information
  */
-function update_userInformation(id) {
+function update_studentsInformation(id) {
 
     //remove hosteler id
     $(".editMessages").html("");
     $(".messages").html("");
     $(".alertmessages").remove();
     $(".deleteMessages").html("");
-    $("#users_id").remove();
-    $("#updateUserForm").removeClass();
+    $("#students_id").remove();
+    $("#UpdateStudentForm").removeClass();
     if(id){
 
         // fetch Data for the hosteler with the current selected id
         $.ajax({
-            url:'../validation/dashboard/admin/getUser_id.php',
+            url:'../validation/dashboard/students/getSTD_id.php',
             type : 'post',
-            data :{users_id :id},
+            data :{student_id :id},
             dataType : 'json',
             success:function (response) {
 
-                $("#editUsername").val(response.username);
-                $("#editEmail").val(response.email);
-                $("#editFirstName").val(response.firstName);
-                $("#editLastName").val(response.lastName);
-                $("#editMobileNumber").val(response.phone);
-                $("#editUserType").val(response.user_type);
+                $("#edit_stdFirstName").val(response.firstName);
+                $("#edit_stdLastName").val(response.lastName);
+                $("#edit_otherName").val(response.otherName);
+                $("#edit_indexNumber").val(response.index_number);
+                $("#edit_stdClass").val(response.class);
+                $("#edit_stdLacost").val(response.lacost);
+                $("#edit_amount").val(response.amount_paid);
+
+
+
+
 
 
 // supervisors id
-                $(".editUserId").append('<input type="text" name="users_id" id="users_id" value="'+response.user_id+'">');
+                $(".editStudentsId").append('<input type="hidden" name="students_id" id="students_id" value="'+response.std_id+'">');
 
 
                 // Update Data
-                $("#updateUserForm").unbind('submit').bind('submit',function () {
+                $("#UpdateStudentForm").unbind('submit').bind('submit',function () {
                     var form = $(this);
 
                     //validation
